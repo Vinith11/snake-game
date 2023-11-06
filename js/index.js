@@ -11,6 +11,7 @@ let snakeArr = [
     {x: 13, y: 15}
 ];
 
+//food is not an array it is an element
 food = {x: 6, y: 7};
 
 // Game Functions
@@ -98,15 +99,14 @@ function gameEngine(){
     foodElement.classList.add('food')
     board.appendChild(foodElement);
 
-
 }
 
+// Main logic
+// musicSound.play();
 
-// Main logic starts here
-musicSound.play();
 let hiscore = localStorage.getItem("hiscore");
-if(hiscore === null){
-    hiscoreval = 0;
+if(hiscore===null){
+    hiscoreval=0;
     localStorage.setItem("hiscore", JSON.stringify(hiscoreval))
 }
 else{
@@ -115,35 +115,63 @@ else{
 }
 
 window.requestAnimationFrame(main);
-window.addEventListener('keydown', e =>{
-    inputDir = {x: 0, y: 1} // Start the game
-    moveSound.play();
-    switch (e.key) {
+
+window.addEventListener('keydown', e=>{
+
+    inputDir = {x: 0, y: 1}
+    //moveSound.play();
+    switch (e.key){
         case "ArrowUp":
             console.log("ArrowUp");
-            inputDir.x = 0;
-            inputDir.y = -1;
+            inputDir.x=0;
+            inputDir.y=-1;
+            break;
+
+        case "w":
+            console.log("ArrowUp");
+            inputDir.x=0;
+            inputDir.y=-1;
             break;
 
         case "ArrowDown":
             console.log("ArrowDown");
-            inputDir.x = 0;
-            inputDir.y = 1;
+            inputDir.x= 0;
+            inputDir.y= 1;
+            break;
+
+        case "s":
+            console.log("ArrowUp");
+            inputDir.x=0;
+            inputDir.y=1;
             break;
 
         case "ArrowLeft":
             console.log("ArrowLeft");
-            inputDir.x = -1;
-            inputDir.y = 0;
+            inputDir.x=-1;
+            inputDir.y=0;
+            break;
+
+        case "a":
+            console.log("ArrowUp");
+            inputDir.x=-1;
+            inputDir.y=0;
             break;
 
         case "ArrowRight":
-            console.log("ArrowRight");
-            inputDir.x = 1;
-            inputDir.y = 0;
+            console.log("ArrowUp");
+            inputDir.x=1;
+            inputDir.y=0;
             break;
+
+        case "d":
+            console.log("ArrowRight");
+            inputDir.x=1;
+            inputDir.y=0;
+            break;
+
         default:
             break;
     }
-
 });
+
+
